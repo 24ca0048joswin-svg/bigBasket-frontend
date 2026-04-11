@@ -37,7 +37,7 @@ function AdminRegistration() {
       alert("Confirm Password is required");
       setMsg("Confirm Password is required");
     } else {
-      const res = await axios.post('http://localhost:3000/admin/register', { username, email, password });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/register`, { username, email, password });
       const data = res.data;
       if (data.status == 'success') {
         alert("Admin Registration successful");

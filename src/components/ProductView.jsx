@@ -27,7 +27,7 @@ function ProductView() {
 
     async function fetchData() {
         try {
-            const res = await axios.post('http://localhost:3000/admin/displayOneProduct', { id: productId });
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/displayOneProduct`, { id: productId });
             const prod = res.data.product;
             setProduct(prod);
             setTitle(prod.title);

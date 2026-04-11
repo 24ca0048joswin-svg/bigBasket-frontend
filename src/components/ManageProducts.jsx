@@ -9,7 +9,7 @@ function ManageProducts() {
 
   async function fetchData() {
     try {
-      const res = await axios.get("http://localhost:3000/admin/displayProducts");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/admin/displayProducts`);
       const data = res.data;
       setProducts([]);
       setProducts([...data.products])

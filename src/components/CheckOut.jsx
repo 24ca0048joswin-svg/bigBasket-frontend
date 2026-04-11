@@ -55,7 +55,7 @@ function CheckOut() {
       const token = localStorage.getItem('token');
       updateFields({ customerId: jwtDecode(token).id.toString() });
       const response = await axios.post(
-        "http://localhost:3000/order/makeOrder",
+        `${import.meta.env.VITE_BACKEND_URI}/order/makeOrder`,
         data
       );
 
@@ -86,7 +86,7 @@ function CheckOut() {
         if (data.paymentOnline) {
           const ids = cart.map(item => item.id);
           const response = await axios.post(
-            "http://localhost:3000/order/checkout",
+            `${import.meta.env.VITE_BACKEND_URI}/order/checkout`,
             { ids: ids },
           );
 
@@ -95,7 +95,7 @@ function CheckOut() {
           if (dataPage) {
             console.log(data);
             const response = await axios.post(
-              "http://localhost:3000/order/makeOrder",
+              `${import.meta.env.VITE_BACKEND_URI}/order/makeOrder`,
               data
             );
 

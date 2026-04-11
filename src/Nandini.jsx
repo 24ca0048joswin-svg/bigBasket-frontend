@@ -16,7 +16,7 @@ export default function Nandini() {
     }
 
     async function fetchData(){
-        const res = await axios.post("http://localhost:3000/user/displayProductsOnCategory", formData, {});
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/displayProductsOnCategory`, formData, {});
         setProducts(res.data.products);
         setFetchedProducts(true);
     }

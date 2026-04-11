@@ -20,10 +20,6 @@
     transform: scale(1.1);
 }
 
-/* .product-display{
-    display:flex;
-} */
-
 .product-display{
     border: 1px solid black;
     border-collapse: collapse;

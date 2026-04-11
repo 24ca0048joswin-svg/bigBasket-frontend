@@ -19,14 +19,14 @@ function EditProduct(
 
     async function fetchData() {
         try {
-            const res = await axios.post('http://localhost:3000/admin/displayOneProduct', { id: productId });
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/displayOneProduct`, { id: productId });
             const product = res.data.product;
             setTitle(product.title);
             setOriginalPrice(product.originalPrice);
             setSellingPrice(product.sellingPrice);
             setSelectedCategory(product.category);
             setSelectedHarDinSasta(product.isHarDinSasta);
-            setPreviewUrl(`http://localhost:3000/static/${product.productUrl}`)
+            setPreviewUrl(`${import.meta.env.VITE_BACKEND_URI}/static/${product.productUrl}`)
         } catch (err) {
             console.log(`An error occured: ${err}`)
         }
@@ -79,7 +79,7 @@ function EditProduct(
 
         console.log("Login");
         try {
-            const res = await axios.post('http://localhost:3000/admin/editProduct', formData,
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/editProduct`, formData,
                 {
                     'Content-Type':'multipart/form-data'
                 },

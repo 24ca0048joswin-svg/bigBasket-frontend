@@ -15,7 +15,7 @@ function ViewOrder() {
     async function fetchDetails() {
         try {
             setLoading(true);
-            const response = await axios.post(`http://localhost:3000/order/getOneOrder`, { id });
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getOneOrder`, { id });
             setOrderData(response.data);
             console.log(response.data);
         } catch (err) {
@@ -48,7 +48,7 @@ function ViewOrder() {
         setSavingStatus(true);
 
         try {
-            await axios.put(`http://localhost:3000/order/updateOrderStatus`, {
+            await axios.put(`${import.meta.env.VITE_BACKEND_URI}/order/updateOrderStatus`, {
                 orderStatus: orderData.orderStatus,
                 id: orderData._id,
                 username: orderData.customer.username,

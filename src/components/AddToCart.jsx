@@ -24,7 +24,7 @@ function AddToCart() {
         try {
             const productIds = cart.map(item => item.id);
 
-            const res = await axios.post('http://localhost:3000/product/prodUsingIds', {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/prodUsingIds`, {
                 ids: productIds
             });
 

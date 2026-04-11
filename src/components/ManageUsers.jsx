@@ -9,7 +9,7 @@ function ManageUsers() {
 
     async function fetchData() {
         try {
-            const res = await axios.get("http://localhost:3000/admin/getUsers");
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/admin/getUsers`);
             const data = res.data;
             // setFetchSuccess(true);
             setUsers([]);

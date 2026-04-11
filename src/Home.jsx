@@ -1,22 +1,17 @@
 import { useState, useEffect } from 'react';
-import SmartBasketCard from './components/SmartBasketCard.jsx';
+// import SmartBasketCard from './components/SmartBasketCard.jsx';
 import Footer from './components/Footer.jsx';
 import Carousel from './components/Carousel.jsx';
 import DisplayProducts from './components/DisplayProducts.jsx';
-import Items from './components/Items.jsx';
+// import Items from './components/Items.jsx';
 import axios from 'axios';
-
-import beetroot from './assets/beetroot.jpg';
-import capsicum from './assets/capsicum.jpg';
-import coriander from './assets/coriander.jpg';
-import ladiesFinger from './assets/ladies-finger.jpeg';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [fetchedProducts, setFetchedProducts] = useState(false);
 
   async function fetchData() {
-    const res = await axios.post("http://localhost:3000/user/displayProducts", {});
+    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/displayProducts`, {});
     setProducts(res.data.products);
     setFetchedProducts(true);
   }
