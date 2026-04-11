@@ -1,0 +1,131 @@
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.checkout-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.step-pill {
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: #f1f1f1;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.step-pill.active {
+  background: #4CAF50;
+  color: white;
+  font-weight: 600;
+}
+
+.step-pill.completed {
+  background: #81C784;
+  color: white;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.summary-section {
+  width: 380px;
+  min-width: 300px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  position: sticky;
+  top: 20px;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #388E3C;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-group {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+label {
+  display: block;
+  margin: 18px 0 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}

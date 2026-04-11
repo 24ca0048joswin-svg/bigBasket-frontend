@@ -1,0 +1,28 @@
+.nav{
+    background-color: black;
+    color:white;
+    padding:10px;
+    display:flex;
+    justify-content: center;
+}
+
+.nav-btn-div{
+    position: absolute;
+    right:10px;
+    top:15px;
+}
+
+.nav-btn{
+    color:white;
+    background-color: red;
+    padding:5px;
+    border:1px solid red;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-right:10px;
+    transition: transform 0.3s;
+}
+
+.nav-btn:hover{
+    transform: scale(1.1);
+}

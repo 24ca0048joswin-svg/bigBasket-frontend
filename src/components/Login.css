@@ -1,0 +1,267 @@
+/* LoginModal.css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: ProximaNova, Helvetica, Arial, sans-serif;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 780px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-split {
+  display: flex;
+  height: 520px;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  color: #333;
+  max-width: 300px;
+}
+
+.why-title {
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 32px;
+  color: #917737;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.feature-item span {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid black;
+  margin: 24px 0;
+}
+
+.app-section {
+  display: flex;
+  /*align-items:center;*/
+  justify-content: center;
+  gap: 2.7rem;
+}
+
+.app-section p {
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+.app-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+
+.app-icon {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.app-icon-border {
+  width: 26px;
+  height: 26px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* Decorative background images */
+.background-images {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+.bg-img {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.beetroot {
+  bottom: 20%;
+  left: 10%;
+  transform: rotate(-12deg);
+}
+
+.capsicum {
+  top: 18%;
+  right: 12%;
+  transform: rotate(8deg);
+}
+
+.coriander {
+  bottom: 28%;
+  right: 18%;
+  transform: rotate(-6deg);
+}
+
+.okra {
+  top: 55%;
+  left: 15%;
+  transform: rotate(15deg);
+}
+
+.right-panel {
+  flex: 1;
+  background: #1a1a1a;
+  color: white;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-panel h2 {
+  font-size: 19px;
+}
+
+.subtitle {
+  border-bottom: 2px solid #ffca28;
+  width: 20%;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.otp-tab {
+  background: #333;
+  background: #333;
+  color: #aaa;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.otp-tab.active {
+  background: #ff9f1c;
+  color: white;
+}
+
+.input-field {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: black;
+}
+
+.input-field::placeholder {
+  color: #888;
+}
+
+.continue-btn {
+  background: #c8102e;
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.continue-btn:hover {
+  background: #b00e28;
+}
+
+.terms,
+.captcha-note {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.5;
+  margin-top: 16px;
+}
+
+.terms a {
+  color: #aaa;
+  text-decoration: underline;
+}
+
+.red-text {
+  color: red;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.link-cursor-text {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.link-cursor-text:hover {
+
+  transform: translateX(10px) scale(1.05);
+}

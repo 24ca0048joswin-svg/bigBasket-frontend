@@ -1,0 +1,188 @@
+/* .smart-basket-card {
+  width: 240px;
+  min-height: 420px;
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.15s ease;
+}
+
+.smart-basket-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: green;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.product-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #0077b6;
+  color: white;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.image-container {
+  height: 180px;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.product-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.delivery-time {
+  font-size: 12px;
+  color: #666;
+  padding: 8px 12px 0 12px;
+}
+
+.fresho {
+  color: #00a651;
+  font-weight: 600;
+}
+
+.mins {
+  margin-left: 6px;
+  background: #fff3e0;
+  color: #f28c38;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  padding: 8px 12px 4px 12px;
+  line-height: 1.4;
+  min-height: 44px;
+}
+
+.quantity-selector {
+  padding: 0 12px;
+  margin: 4px 0;
+}
+
+.quantity-selector select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  background: white;
+  color: #444;
+}
+
+.price-row {
+  padding: 0 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.original-price {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.har-din-sasta {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  margin: 8px 12px 0 12px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.har-din-sasta .arrow {
+  font-size: 12px;
+}
+
+.add-section {
+  margin-top: auto;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.bookmark-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  flex: 1;
+  background: white;
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #008c45;
+};
+
+.bold{
+    font-weight: 800;
+}
+ */
+
+.add-btn-margin{
+  margin:1rem;
+}

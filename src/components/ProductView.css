@@ -1,0 +1,62 @@
+.two-column-box{
+    display:flex;
+    margin:10px;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.center-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:80dvh;
+}
+
+.text-description{
+    width:40%;
+    margin:1rem;
+}
+
+.text-description *{
+    margin:1rem;
+}
+
+.prod-image{
+    border:1px solid green;
+    padding:10px;
+    border-radius: 5px;
+}
+
+.title-product{
+    font-size:4rem;
+}
+
+.og-price{
+    text-decoration:line-through;
+    font-size:1rem;
+    color:grey;
+}
+
+.font-har-din-sasta{
+    color:green;
+    font-size: 1.2rem;
+}
+
+.savings{
+    color:green;
+}
+
+.price{
+    font-size: 2rem;
+}
+
+.add-to-cart-btn{
+    font-size: 2rem;
+    border:1px solid red;
+}
+
+.add-to-cart-btn:hover{
+    background-color: red;
+    color:white;
+}
