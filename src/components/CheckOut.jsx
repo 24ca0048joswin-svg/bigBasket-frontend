@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/ContextProvider";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import './Checkout.css';
+import './CheckOut.css';
 
 const INITIAL_DATA = {
   'firstName': "",
