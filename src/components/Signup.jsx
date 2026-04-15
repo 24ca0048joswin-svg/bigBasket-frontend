@@ -9,8 +9,6 @@ function SignUp({ state }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [msg, setMsg] = useState('');
 
-  console.log(state);
-
   async function handleRegister(e) {
     e.preventDefault();
     if (email == "" && password == "" && username == "" && confirmPassword == "") {
