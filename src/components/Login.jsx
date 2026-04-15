@@ -104,6 +104,12 @@ function Login({ onClose, setLogin }) {
                 "Already have an account? Login"
               }</span>
 
+
+              <br></br>
+              <br></br>
+              <br></br>
+              <Link to="/adminLogin" className='link-margin white-text'>Go to admin panel</Link>
+
               {/* <p className="terms">
               By continuing, I accept bigbasket's{' '}
               <a href="#">Terms and Conditions</a> &{' '}
