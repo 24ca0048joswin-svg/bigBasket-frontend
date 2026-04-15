@@ -15,7 +15,9 @@ import './CheckOut.css';
 function returnToken() {
   const token = localStorage.getItem('token');
   if (token) {
-    return jwtDecode().id.toString(token);
+    return jwtDecode(token).id.toString();
+    return jwtDecode(token);
+    // return token;
   } else {
     return null;
   }
