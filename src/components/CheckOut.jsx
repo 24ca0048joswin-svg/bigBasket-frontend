@@ -12,6 +12,15 @@ import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import './CheckOut.css';
 
+function returnToken() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    return jwtDecode().id.toString(token);
+  } else {
+    return null;
+  }
+}
+
 const INITIAL_DATA = {
   'firstName': "",
   'lastName': "",
@@ -23,7 +32,7 @@ const INITIAL_DATA = {
   'zipcode': "",
   'paymentOnline': true,
   'totalPrice': 0,
-  'customerId': jwtDecode(localStorage.getItem('token')).id.toString(),
+  'customerId': returnToken(),
   'items': [{
     'productId': '',
     'quantity': 0,

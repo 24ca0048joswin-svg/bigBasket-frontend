@@ -5,10 +5,12 @@ import basket from '../assets/basket.png';
 import './Header.css';
 import Login from './Login.jsx';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   function onClickLogin() {
     setShowLogin(true);
@@ -18,6 +20,7 @@ export default function Header() {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
     alert("You have logged out from your account!");
+    navigate("/");
   }
   useEffect(() => {
     const token = localStorage.getItem('token');

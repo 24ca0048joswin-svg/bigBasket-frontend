@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Home from './Home.jsx';
 import ExoticFruits from './ExoticFruits.jsx';
@@ -21,6 +22,7 @@ import AdminOrders from './components/AdminOrders.jsx';
 import PaymentSuccess from './components/checkout/PaymentSuccess.jsx';
 import PaymentCancel from './components/checkout/PaymentCancel.jsx';
 import ViewOrder from './components/ViewOrder.jsx';
+import ProtectedRoute from './utils/ProtectedRoute.jsx';
 
 function MainLayout() {
   return (
@@ -40,6 +42,21 @@ function AdminLayout() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  function isTokenExists() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  useEffect(() => {
+
+  }, []);
+
   return (
     <Routes>
       <Route element={<AdminLayout />}>
@@ -62,11 +79,13 @@ function App() {
         <Route path="/ghee" element={<Ghee />} />
         <Route path="/nandini" element={<Nandini />} />
         <Route path="/freshvegetables" element={<FreshVegetables />} />
-        <Route path="/addToCart" element={<AddToCart />} />
         <Route path="/view/:productId" element={<ProductView />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/addToCart" element={<AddToCart />} />
+        </Route>
       </Route>
 
-      <Route>
+      <Route element={<ProtectedRoute />}>
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/success" element={<PaymentSuccess />} />
         <Route path="/cancel" element={<PaymentCancel />} />
