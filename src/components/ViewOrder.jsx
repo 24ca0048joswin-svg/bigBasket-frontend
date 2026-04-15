@@ -69,7 +69,7 @@ function ViewOrder() {
         setSavingPayment(true);
 
         try {
-            await axios.put(`http://localhost:3000/order/updatePaymentStatus`, {
+            await axios.put(`${import.meta.env.VITE_BACKEND_URI}/order/updatePaymentStatus`, {
                 paymentStatus: orderData.paymentStatus,
                 id: orderData._id,
             });
@@ -157,7 +157,7 @@ function ViewOrder() {
                         <tr key={index}>
                             <td>
                                 <img
-                                    src={`http://localhost:3000/static/${product.productId.productUrl}`}
+                                    src={`${import.meta.env.VITE_BACKEND_URI}/static/${product.productId.productUrl}`}
                                     alt={product.productId.title}
                                     className="product-image"
                                 />
