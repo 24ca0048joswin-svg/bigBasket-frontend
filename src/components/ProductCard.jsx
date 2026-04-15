@@ -12,7 +12,7 @@ function ProductCard({
     fetchProduct,
     isHarDinSasta = false,
 }) {
-    const url = `http://localhost:3000/static/${imageUrl}`
+    const url = `${import.meta.env.VITE_BACKEND_URI}/static/${imageUrl}`
     const editUrl = `/editProduct/${id}`
 
     function showId() {
@@ -21,7 +21,7 @@ function ProductCard({
 
     async function onDelete() {
         try {
-            const isDeleted = await axios.post('http://localhost:3000/admin/RemoveProduct', { id });
+            const isDeleted = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/RemoveProduct`, { id });
             if (isDeleted) {
                 fetchProduct();
             }

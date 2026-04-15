@@ -24,7 +24,7 @@ export default function SmartBasketCard({
       {tag && <div className="product-tag">{tag}</div>}
 
       <div className="image-container">
-        <img src={`http://localhost:3000/static/${imageUrl}`} alt={name} className="product-image" />
+        <img src={`${import.meta.env.VITE_BACKEND_URI}/static/${imageUrl}`} alt={name} className="product-image" />
       </div>
 
       <div className="delivery-time">

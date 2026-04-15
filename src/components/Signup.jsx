@@ -35,7 +35,7 @@ function SignUp({ state }) {
       alert("Confirm Password is required");
       setMsg("Confirm Password is required");
     } else {
-      const res = await axios.post('http://localhost:3000/user/register', { username, email, password });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/register`, { username, email, password });
       const data = res.data;
       if (data.status == 'success') {
         alert("Registration successful");

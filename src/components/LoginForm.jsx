@@ -20,7 +20,7 @@ function LoginForm({ onClose, setLogin }) {
       alert("Password is required")
       setMsg("Password is required");
     } else {
-      const res = await axios.post('http://localhost:3000/user/login', { email, password });
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/login`, { email, password });
       const data = res.data;
       if (data.status == 'success') {
         console.log(setLogin);

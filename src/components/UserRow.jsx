@@ -4,7 +4,7 @@ import axios from 'axios';
 function UserRow({ username, email, id, fetchData }) {
     async function deleteUser() {
         try {
-            const res = await axios.post('http://localhost:3000/admin/deleteUser', { 'id': id }, {});
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/deleteUser`, { 'id': id }, {});
             if (res) {
                 fetchData();
             }
