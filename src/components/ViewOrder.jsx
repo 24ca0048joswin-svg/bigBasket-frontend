@@ -15,7 +15,7 @@ function ViewOrder() {
     async function fetchDetails() {
         try {
             setLoading(true);
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getOneOrder`, { id });
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/getOneOrder`, { id });
             setOrderData(response.data);
             console.log(response.data);
         } catch (err) {

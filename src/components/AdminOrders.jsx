@@ -11,7 +11,7 @@ function AdminOrders() {
     async function fetchOrders() {
         try {
             setLoading(true);
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getAllOrders`);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/getAllOrders`);
             setOrders(response.data);
         } catch (err) {
             console.error('Error fetching orders:', err);

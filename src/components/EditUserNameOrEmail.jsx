@@ -11,7 +11,7 @@ function EditUsers() {
 
     async function fetchData() {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/getOneUser`, { id: userId });
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/getOneUser`, { id: userId });
             const user = res.data.user;
             setUname(user.username);
             setMail(user.email);

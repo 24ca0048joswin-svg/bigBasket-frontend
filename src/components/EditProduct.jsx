@@ -19,7 +19,7 @@ function EditProduct(
 
     async function fetchData() {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/displayOneProduct`, { id: productId });
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/displayOneProduct`, { id: productId });
             const product = res.data.product;
             setTitle(product.title);
             setOriginalPrice(product.originalPrice);
@@ -77,15 +77,15 @@ function EditProduct(
         formData.append('category', selectedCategory);
         formData.append('id', productId);
 
-        console.log("Login");
+        console.log("edit product");
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/editProduct`, formData,
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/editProduct`, formData,
                 {
                     'Content-Type':'multipart/form-data'
                 },
             );
             const data = res.data;
-            navigate('/manageProducts');
+            // navigate('/manageProducts');
 
             if (data.status == 'success') {
                 alert("Product updated successfully");

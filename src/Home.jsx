@@ -11,7 +11,7 @@ export default function Home() {
   const [fetchedProducts, setFetchedProducts] = useState(false);
 
   async function fetchData() {
-    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/displayProducts`, {});
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URI}/product/displayProducts`, {});
     setProducts(res.data.products);
     setFetchedProducts(true);
   }

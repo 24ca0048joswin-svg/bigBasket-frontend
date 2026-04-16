@@ -27,7 +27,7 @@ function ProductView() {
 
     async function fetchData() {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/displayOneProduct`, { id: productId });
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/displayOneProduct`, { id: productId });
             const prod = res.data.product;
             setProduct(prod);
             setTitle(prod.title);
@@ -36,7 +36,7 @@ function ProductView() {
             setSelectedCategory(prod.category);;
             setSelectedHarDinSasta(prod.isHarDinSasta);
             setDiscount(prod.discountPercentage);
-            setPreviewUrl(`${import.meta.env.VITE_BACKEND_URI}/static/${prod.productUrl}`);
+            setPreviewUrl(prod.productUrl);
 
             const cartItem = cart.find(item => item.id === productId);
 

@@ -23,7 +23,6 @@ function LoginForm({ onClose, setLogin }) {
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/user/login`, { email, password });
       const data = res.data;
       if (data.status == 'success') {
-        console.log(setLogin);
         setLogin(true);
         localStorage.setItem('token', data.token);
         alert("Login successful");

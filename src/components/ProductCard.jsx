@@ -12,7 +12,6 @@ function ProductCard({
     fetchProduct,
     isHarDinSasta = false,
 }) {
-    const url = `${import.meta.env.VITE_BACKEND_URI}/static/${imageUrl}`
     const editUrl = `/editProduct/${id}`
 
     function showId() {
@@ -21,7 +20,7 @@ function ProductCard({
 
     async function onDelete() {
         try {
-            const isDeleted = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/admin/RemoveProduct`, { id });
+            const isDeleted = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/RemoveProduct`, { id });
             if (isDeleted) {
                 fetchProduct();
             }
@@ -34,7 +33,7 @@ function ProductCard({
         <>
             <td>
                 <div className="image-container">
-                    <img src={url} alt={name} className="product-image" />
+                    <img src={imageUrl} alt={name} className="product-image" />
                 </div>
             </td>
             <td>

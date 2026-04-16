@@ -24,7 +24,7 @@ function Purchase({ data, updateFields }) {
                 }))
             });
 
-            const res = await axios.post('http://localhost:3000/product/prodUsingIds', {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/prodUsingIds`, {
                 ids: productIds
             });
 
@@ -97,7 +97,7 @@ function Purchase({ data, updateFields }) {
                         <div key={cartItem.id} className="review-item">
                             <div className="item-main">
                                 <img
-                                    src={`http://localhost:3000/static/${product.productUrl}`}
+                                    src={product.productUrl}
                                     alt={product.name}
                                     className="item-img"
                                     width="100px"
