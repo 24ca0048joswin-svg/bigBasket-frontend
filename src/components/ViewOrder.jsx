@@ -15,7 +15,7 @@ function ViewOrder() {
     async function fetchDetails() {
         try {
             setLoading(true);
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/product/getOneOrder`, { id });
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getOneOrder`, { id });
             setOrderData(response.data);
             console.log(response.data);
         } catch (err) {
@@ -157,7 +157,7 @@ function ViewOrder() {
                         <tr key={index}>
                             <td>
                                 <img
-                                    src={`${import.meta.env.VITE_BACKEND_URI}/static/${product.productId.productUrl}`}
+                                    src={`${product.productId.productUrl}`}
                                     alt={product.productId.title}
                                     className="product-image"
                                 />

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './AdminOrders.css';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function AdminOrders() {
+function UserViewOrder() {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,7 +11,8 @@ function AdminOrders() {
     async function fetchOrders() {
         try {
             setLoading(true);
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getAllOrders`);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getCustomerOrders`, {custId: '69a1768d4ac58319af6e03fb'});
+            console.log(response.data)
             setOrders(response.data);
         } catch (err) {
             console.error('Error fetching orders:', err);
@@ -57,10 +58,7 @@ function AdminOrders() {
                             <tr>
                                 <th>Order No</th>
                                 <th>Date</th>
-                                <th>Customer</th>
                                 <th>Total</th>
-                                <th>Payment Status</th>
-                                <th>Order Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -76,27 +74,11 @@ function AdminOrders() {
                                             #{order.orderNo}
                                         </td>
                                         <td>{formatDate(order.date)}</td>
-                                        <td>
-                                            {
-                                                order.customer?.email ||
-                                                'Unknown Customer'
-                                            }
-                                        </td>
                                         <td className="total">₹{order.totalPrice}</td>
-                                        <td>
-                                            <span className={`status payment ${order.paymentStatus ? 'paid' : 'pending'}`}>
-                                                {getPaymentStatus(order.paymentStatus)}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className={`status order-status ${order.orderStatus}`}>
-                                                {order.orderStatus}
-                                            </span>
-                                        </td>
                                         <td className="actions">
                                             <Link
                                                 className="btn view-btn link-margin"
-                                                to={`/viewOrder/${order._id}`}
+                                                to={`/viewOneOrder/${order._id}`}
                                             >
                                                 View Order
                                             </Link>
@@ -112,4 +94,4 @@ function AdminOrders() {
     );
 }
 
-export default AdminOrders;
+export default UserViewOrder;

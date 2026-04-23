@@ -75,3 +75,13 @@
     width: 100px;
     border-radius: 6px;
 }
+
+.back-btn{
+    background-color: red;
+    color:white;
+    border: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom:10px;
+}

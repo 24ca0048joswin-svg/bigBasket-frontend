@@ -4,6 +4,7 @@ import './AdminPanel.css';
 import add from './assets/add.png';
 import addGroup from './assets/add-group.png'
 import product from './assets/product.png'
+import orders from './assets/orders-icon.jpg'
 import { Link } from 'react-router-dom';
 import AdminNav from './components/AdminNav';
 
@@ -28,6 +29,12 @@ function AdminPanel() {
           <button className='add-product'>
             <img src={addGroup} width="170px" />
             Manage Users
+          </button>
+        </Link>
+        <Link to="/adminOrder" className='link-margin'>
+          <button className='add-product'>
+            <img src={orders} height="170px" width="165px" />
+            Manage Orders
           </button>
         </Link>
       </div>

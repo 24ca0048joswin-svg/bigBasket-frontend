@@ -23,6 +23,8 @@ import PaymentSuccess from './components/checkout/PaymentSuccess.jsx';
 import PaymentCancel from './components/checkout/PaymentCancel.jsx';
 import ViewOrder from './components/ViewOrder.jsx';
 import ProtectedRoute from './utils/ProtectedRoute.jsx';
+import UserViewOrder from './components/UserViewOrder.jsx';
+import UserViewIndividualOrder from './components/UserViewIndividualOrder.jsx';
 
 function MainLayout() {
   return (
@@ -82,6 +84,8 @@ function App() {
         <Route path="/view/:productId" element={<ProductView />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/addToCart" element={<AddToCart />} />
+          <Route path="/viewOrders" element={<UserViewOrder />} />
+          <Route path="/viewOneOrder/:id" element={<UserViewIndividualOrder />} />
         </Route>
       </Route>
 

@@ -44,18 +44,24 @@ export default function Header() {
             </div>
 
             <div className="search-wrapper">
-              <div className="search-icon">🔍</div>
+              {/* <div className="search-icon">🔍</div> */}
               <input
                 type="text"
                 placeholder="Search for Products..."
                 className="search-input"
               />
             </div>
+
           </div>
 
           <div className="top-right">
+
             <div className="delivery-tag">
               <span className="delivery-tag-color">Delivery in 10 mins</span><br /><span>Select Location</span>
+            </div>
+
+            <div className='view-order'>
+              <Link to="/viewOrders">View Orders</Link>
             </div>
 
             {
@@ -69,13 +75,13 @@ export default function Header() {
                 </button>
             }
 
-           {/* <Link to="/addToCart">
+            {/* <Link to="/addToCart">
               <img src={basket} alt="smart basket" height="36px" />
             </Link> */}
 
-           { isLoggedIn && <Link to="/addToCart">
+            {isLoggedIn && <Link to="/addToCart">
               <img src={basket} alt="smart basket" height="36px" />
-            </Link> }
+            </Link>}
           </div>
         </div>
       </div>
