@@ -23,7 +23,7 @@ function AdminNav() {
             className="link-margin"
             style={{ color: "white" }}
           >
-            Admin DashBoard
+            Admin Dashboard
           </Link>
         </h1>
         <div className="nav-btn-div">

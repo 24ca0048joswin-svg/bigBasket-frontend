@@ -98,7 +98,7 @@ function CheckOut() {
           const ids = cart.map(item => item.id);
           const response = await axios.post(
             `${import.meta.env.VITE_BACKEND_URI}/order/checkout`,
-            { ids: ids },
+            { ids: ids, cart },
           );
 
           const dataPage = await response.data;

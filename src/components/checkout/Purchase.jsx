@@ -6,8 +6,10 @@ function Purchase({ data, updateFields }) {
     const { cart, removeFromCart } = useContext(CartContext);
 
     const [products, setProducts] = useState([]);
+    const [subTotal, setSubTotal] = useState(0);
     const [total, setTotal] = useState(0);
     const [savings, setSavings] = useState(0);
+    const [tax, setTax] = useState(0);
 
     async function fetchProducts() {
         if (cart.length === 0) {
@@ -42,9 +44,12 @@ function Purchase({ data, updateFields }) {
                 }
             });
 
-            setTotal(calculatedTotal);
+            const taxAmount = calculatedTotal * 0.18;
+            setTax(taxAmount.toFixed(2))
+            setSubTotal(calculatedTotal);
             setSavings(calculatedSavings);
-            updateFields({totalPrice: calculatedTotal});
+            setTotal(calculatedTotal + taxAmount);
+            updateFields({ totalPrice: calculatedTotal + taxAmount });
         } catch (error) {
             console.error("Error fetching products:", error);
             setProducts([]);
@@ -74,7 +79,11 @@ function Purchase({ data, updateFields }) {
                 calculatedTotal += itemTotal;
             }
         });
-        setTotal(calculatedTotal);
+        const taxAmount = calculatedTotal * 0.18;
+        setTax(taxAmount.toFixed(2))
+        setSubTotal(calculatedTotal);
+        setSavings(calculatedSavings);
+        setTotal(calculatedTotal + taxAmount);
     }
 
     useEffect(() => {
@@ -145,6 +154,12 @@ function Purchase({ data, updateFields }) {
                     <hr />
 
                     <div className="summary-row grand-total">
+                        <strong>Sub Total Amount: </strong>
+                        <strong>₹{subTotal}</strong>
+                        <br/>
+                        <strong>Tax Amount: </strong>
+                        <strong>₹{tax}</strong>
+                        <br/>
                         <strong>Total Amount: </strong>
                         <strong>₹{total}</strong>
                     </div>

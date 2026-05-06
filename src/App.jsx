@@ -25,6 +25,8 @@ import ViewOrder from './components/ViewOrder.jsx';
 import ProtectedRoute from './utils/ProtectedRoute.jsx';
 import UserViewOrder from './components/UserViewOrder.jsx';
 import UserViewIndividualOrder from './components/UserViewIndividualOrder.jsx';
+import AnalyticsAdmin from './components/AnalyticsAdmin.jsx';
+import SearchPage from './components/SearchPage.jsx';
 
 function MainLayout() {
   return (
@@ -72,6 +74,7 @@ function App() {
         <Route path="/editUserNameOrEmail/:userId" element={<EditUserNameOrEmail />} />
         <Route path="/adminOrder" element={<AdminOrders />} />
         <Route path="/viewOrder/:id" element={<ViewOrder />} />
+        <Route path="/analytics" element={<AnalyticsAdmin />} />
       </Route>
 
       <Route element={<MainLayout />}>
@@ -81,6 +84,7 @@ function App() {
         <Route path="/ghee" element={<Ghee />} />
         <Route path="/nandini" element={<Nandini />} />
         <Route path="/freshvegetables" element={<FreshVegetables />} />
+        <Route path="/search/" element={<SearchPage />} />
         <Route path="/view/:productId" element={<ProductView />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/addToCart" element={<AddToCart />} />

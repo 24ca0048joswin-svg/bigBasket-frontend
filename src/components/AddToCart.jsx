@@ -9,7 +9,8 @@ function AddToCart() {
     const [products, setProducts] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [total, setTotal] = useState(0);
-    const [savings, setSavings] = useState(0);
+    const [tax, setTax] = useState(0);
+    const [totalWithTax, setTotalWithTax] = useState(0);
     const [isCartEmpty, setIsCartEmpty] = useState(false);
 
     const { cart, clearCart } = useContext(CartContext);
@@ -31,18 +32,18 @@ function AddToCart() {
             setProducts(res.data.products || []);
 
             let calculatedTotal = 0;
-            let calculatedSavings = 0;
             res.data.products.forEach(prod => {
                 const cartItem = cart.find(item => item.id === prod._id);
                 if (cartItem) {
                     const itemTotal = prod.sellingPrice * cartItem.quantity;
                     calculatedTotal += itemTotal;
-                    calculatedSavings += (prod.originalPrice - prod.sellingPrice) * cartItem.quantity;
                 }
             });
 
+            const taxAmount = calculatedTotal * 0.18;
             setTotal(calculatedTotal);
-            setSavings(calculatedSavings);
+            setTax(taxAmount.toFixed(2))
+            setTotalWithTax(calculatedTotal + taxAmount);
         } catch (error) {
             console.error("Error fetching products:", error);
             setProducts([]);
@@ -53,18 +54,18 @@ function AddToCart() {
 
     function calculation() {
         let calculatedTotal = 0;
-        let calculatedSavings = 0;
         products.forEach(prod => {
             const cartItem = cart.find(item => item.id === prod._id);
             if (cartItem) {
                 const itemTotal = prod.sellingPrice * cartItem.quantity;
                 calculatedTotal += itemTotal;
-                calculatedSavings += (prod.originalPrice - prod.sellingPrice) * cartItem.quantity;
             }
         });
 
-        setTotal(calculatedTotal);
-        setSavings(calculatedSavings);
+            const taxAmount = calculatedTotal * 0.18;
+            setTotal(calculatedTotal);
+            setTax(taxAmount.toFixed(2))
+            setTotalWithTax(calculatedTotal + taxAmount);
     }
 
     useEffect(() => {
@@ -109,7 +110,7 @@ function AddToCart() {
                                                 product={prod}
                                                 quantity={cartItem.quantity}
                                                 setTotal={setTotal}
-                                                setSavings={setSavings}
+                                                // setSavings={setSavings}
                                             />
                                         );
                                     })
@@ -124,12 +125,14 @@ function AddToCart() {
                         <table className='width-70'>
                             <tfoot>
                                 <tr className='tr-heading'>
+                                    <td>SubTotal</td>
+                                    <td>Tax</td>
                                     <td>Total</td>
-                                    <td>Savings</td>
                                 </tr>
                                 <tr>
                                     <td>₹{total}</td>
-                                    <td>₹{savings}</td>
+                                    <td>₹{tax}</td>
+                                    <td>₹{totalWithTax}</td>
                                 </tr>
                             </tfoot>
                         </table>

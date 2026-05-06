@@ -11,9 +11,16 @@ export default function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const [q, setQ] = useState();
 
   function onClickLogin() {
     setShowLogin(true);
+  }
+
+  function handleSearch(e){
+     e.preventDefault(); 
+
+     navigate(`/search?q=${q}`);
   }
 
   function logout() {
@@ -49,7 +56,10 @@ export default function Header() {
                 type="text"
                 placeholder="Search for Products..."
                 className="search-input"
+                value={q}
+                onChange={e => setQ(e.target.value)}
               />
+              <button className='search-btn' onClick={handleSearch}>🔍</button>
             </div>
 
           </div>
