@@ -11,6 +11,7 @@ import { CartContext } from "../context/ContextProvider";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import './CheckOut.css';
+import Toast from "../utils/Toast.jsx";
 
 function returnToken() {
   const token = localStorage.getItem('token');
@@ -43,6 +44,7 @@ const INITIAL_DATA = {
 
 function CheckOut() {
   const [data, setData] = useState(INITIAL_DATA);
+  const [loading, setLoading] = useState(false);
 
   const updateFields = (newFields) => {
     setData(prev => ({ ...prev, ...newFields }));
@@ -74,6 +76,7 @@ function CheckOut() {
       if (response.data.status == 'success') {
         alert("Order placed successfully!");
         clearCart();
+        setLoading(false);
         navigate('/');
       } else {
         alert("Something went wrong");
@@ -91,7 +94,7 @@ function CheckOut() {
         return;
       }
 
-
+      setLoading(true);
       if (isLastStep) {
 
         if (data.paymentOnline) {
@@ -112,6 +115,7 @@ function CheckOut() {
 
             clearCart();
           }
+          setLoading(false);
           window.location.href = dataPage.url;
         } else {
           storeOrder();
@@ -124,6 +128,7 @@ function CheckOut() {
 
   return (
     <div className="checkout-container">
+    <Toast isShow={loading} />
       <h1 className="checkout-title">Complete Your Order</h1>
 
       <div className="progress-steps">
@@ -151,7 +156,7 @@ function CheckOut() {
                 )}
 
                 {!isFirstStep && (
-                  <Link to="/addToCart" className="btn-secondary">
+                  <Link to="/addToCart" className="btn-secondary remove-link-underline">
                     Return to Cart
                   </Link>
                 )}

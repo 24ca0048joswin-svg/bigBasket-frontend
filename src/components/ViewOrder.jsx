@@ -98,7 +98,7 @@ function ViewOrder() {
                 <h2>Order No: #{orderData.orderNo}</h2>
                 <h2>Customer Email: {orderData.customer.email}</h2>
                 <h2>Customer Name: {orderData.customer.username}</h2>
-                <h2>Total Price: ₹{orderData.totalPrice}</h2>
+                <h2>Total Price: ₹{orderData.totalPrice.toFixed(2)}</h2>
 
                 <div className="status-section">
                     <strong>Order Status: </strong>

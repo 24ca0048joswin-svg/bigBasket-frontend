@@ -44,3 +44,35 @@
   color:white;
   background-color:blue;
 }
+
+.remove-link-underline{
+  text-decoration: none;
+}
+
+.color-red{
+  color:red;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 400px;
+    padding: 14px;
+    background-color: #cccccc;
+    color: #333333;
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid #00b140;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.loading-toast{
+  background-color: white;
+  color: #00b140;
+  font-weight: bold;
+}

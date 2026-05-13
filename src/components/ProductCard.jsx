@@ -59,7 +59,7 @@ function ProductCard({
 
             <td>
                 <div className="product-name">
-                    <Link to={editUrl} className="add-btn add-btn-margin">Edit</Link>
+                    <Link to={editUrl} className="add-btn add-btn-margin remove-link-underline">Edit</Link>
                     <button className="add-btn add-btn-margin" onClick={onDelete}>Remove</button>
                 </div>
             </td>

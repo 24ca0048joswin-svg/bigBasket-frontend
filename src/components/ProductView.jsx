@@ -17,13 +17,14 @@ function ProductView() {
     const [product, setProduct] = useState();
     const [isAddedToCart, setIsAddedToCart] = useState(true);
     const [count, setCount] = useState(0);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    function goBack(){
+    function goBack() {
         navigate(-1);
     }
 
-    const { addToCart, cart, increaseQuantity, decreaseQuantity, removeFromCart} = useContext(CartContext);
+    const { addToCart, cart, increaseQuantity, decreaseQuantity, removeFromCart } = useContext(CartContext);
 
     async function fetchData() {
         try {
@@ -56,9 +57,13 @@ function ProductView() {
         }
     }
 
-
     useEffect(() => {
         fetchData();
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            setIsLoggedIn(true);
+        }
     }, []);
 
     useEffect(() => {
@@ -83,43 +88,50 @@ function ProductView() {
                                 <span className="font-har-din-sasta">Har Din Sasta!</span>
                             </div>
                         )}
-                        {isAddedToCart ?
-                            <button className="add-btn add-to-cart-btn" onClick={() => {
-                                addToCart(productId);
-                                setIsAddedToCart(false);
-                            }}>Add to cart</button> :
-                            <div>
-                                <h2>Quantity:</h2>
-                                <button className='counter-btn counter-font' onClick={() => increaseQuantity(product._id)}>
-                                    +
-                                </button>
-                                <button className='counter-font counter-btn'>{count}</button>
-                                <button className='counter-btn counter-font' onClick={() => decreaseQuantity(product._id)}>
-                                    -
-                                </button>
-                                <br/>
-                                <button className='red-btn' onClick={() => {
-                                    removeFromCart(product._id);
-                                    setIsAddedToCart(true);
-                                    alert("Product is removed");
-                                }}>Remove Product</button>
 
-                            </div>
+                        {isLoggedIn ? 
+                        <div>
+                            {
+                                isAddedToCart ?
+                                    <button className="add-btn add-to-cart-btn" onClick={
+                                        () => {
+                                            addToCart(productId);
+                                            setIsAddedToCart(false);
+                                        }
+                                    }>Add to cart</button> :
+                                    <div>
+                                        <h2>Quantity:</h2>
+                                        <button className='counter-btn counter-font' onClick={() => increaseQuantity(product._id)}>
+                                            +
+                                        </button>
+                                        <button className='counter-font counter-btn'>{count}</button>
+                                        <button className='counter-btn counter-font' onClick={() => decreaseQuantity(product._id)}>
+                                            -
+                                        </button>
+                                        <br />
+                                        <button className='red-btn' onClick={() => {
+                                            removeFromCart(product._id);
+                                            setIsAddedToCart(true);
+                                            alert("Product is removed");
+                                        }}>Remove Product</button>
+                                    </div>
+                            }
+                        </div>:
+                        <div className="color-re.d">Sign in for add to cart</div>
                         }
 
-
-                                <button style={{
-                                    color:'red',
-                                    border: '1px solid red',
-                                    padding:'10px',
-                                    borderRadius: '4px',
-                                    fontSize : '1.2rem',
-                                }}
-                                onClick={goBack}
-                                >Back</button>
+                        <button style={{
+                            color: 'red',
+                            border: '1px solid red',
+                            padding: '10px',
+                            borderRadius: '4px',
+                            fontSize: '1.2rem',
+                        }}
+                            onClick={goBack}
+                        >Back</button>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

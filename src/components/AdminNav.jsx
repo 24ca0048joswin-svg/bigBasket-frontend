@@ -27,9 +27,9 @@ function AdminNav() {
           </Link>
         </h1>
         <div className="nav-btn-div">
-          <button className="nav-btn" onClick={addAdmin}>
+          {/* <button className="nav-btn" onClick={addAdmin}>
             Add Admin
-          </button>
+          </button> */}
           <button className="nav-btn" onClick={logout}>
             Logout
           </button>

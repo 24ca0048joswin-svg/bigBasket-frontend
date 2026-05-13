@@ -49,7 +49,7 @@ function AnalyticsAdmin() {
             <div className='sub-log'>
                 <span className='text-small'>Total Sales:</span>
                 <br />
-                <span className='text-large'>{data.totalSales}</span>
+                <span className='text-large'>Rs. {data.totalSales.toFixed(2)}</span>
             </div>
             <div className='sub-log'>
                 <span className='text-small'>Total Orders:</span>
@@ -61,7 +61,7 @@ function AnalyticsAdmin() {
                 <span className='text-small'>GST for Govt:</span>
 
                 <br />
-                <span className='text-large'>Rs.{data.gstForGovt}</span>
+                <span className='text-large'>Rs.{data.gstForGovt.toFixed(2)}</span>
             </div>
             <div className='sub-log'>
                 <span className='text-small'>Total Products Sold:</span>

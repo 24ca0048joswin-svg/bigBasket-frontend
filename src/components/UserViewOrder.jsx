@@ -2,16 +2,29 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 function UserViewOrder() {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    function returnToken() {
+        const token = localStorage.getItem('token');
+        if (token) {
+            return jwtDecode(token).id.toString();
+            return jwtDecode(token);
+            // return token;
+        } else {
+            return null;
+        }
+    }
+
     async function fetchOrders() {
         try {
             setLoading(true);
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getCustomerOrders`, {custId: '69a1768d4ac58319af6e03fb'});
+            const custId = returnToken();
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/order/getCustomerOrders`, { custId });
             console.log(response.data)
             setOrders(response.data);
         } catch (err) {
@@ -74,7 +87,7 @@ function UserViewOrder() {
                                             #{order.orderNo}
                                         </td>
                                         <td>{formatDate(order.date)}</td>
-                                        <td className="total">₹{order.totalPrice}</td>
+                                        <td className="total">₹{order.totalPrice.toFixed(2)}</td>
                                         <td className="actions">
                                             <Link
                                                 className="btn view-btn link-margin"

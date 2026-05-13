@@ -70,9 +70,12 @@ export default function Header() {
               <span className="delivery-tag-color">Delivery in 10 mins</span><br /><span>Select Location</span>
             </div>
 
+          {
+            isLoggedIn && 
             <div className='view-order'>
               <Link to="/viewOrders">View Orders</Link>
             </div>
+          }
 
             {
               isLoggedIn ?

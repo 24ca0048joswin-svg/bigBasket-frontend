@@ -82,7 +82,7 @@ function AdminOrders() {
                                                 'Unknown Customer'
                                             }
                                         </td>
-                                        <td className="total">₹{order.totalPrice}</td>
+                                        <td className="total">₹{order.totalPrice.toFixed(2)}</td>
                                         <td>
                                             <span className={`status payment ${order.paymentStatus ? 'paid' : 'pending'}`}>
                                                 {getPaymentStatus(order.paymentStatus)}
